@@ -1,3 +1,10 @@
 spring:
   profiles:
     active: dev
+
+  datasource:
+    url=jdbc:postgresql://localhost:5432/forsyth
+    username=postgres
+    password=10a2045c829726c141208a385f116a9f
+  jpa:
+    hibernate.ddl-auto=update
