@@ -1,4 +1,4 @@
-package gmlabs.forsyth
+package gmlabs.foresyth
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
