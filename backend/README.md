@@ -18,3 +18,10 @@ docker exec -it forsyth-postgres bash
 ```bash
 psql -U postgres -d forsyth
 ```
+
+# Todo
+ - Add liquibase migrations
+ - Add volume to database for local dev
+ - Create test cases
+ - Create infra project
+ - Install gitlab on local dev

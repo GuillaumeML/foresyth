@@ -1,0 +1,4 @@
+<databaseChangeLog>
+    <!-- Reference to your SQL changeset -->
+    <include file="classpath:db/changelog/changes/0001-initial-schema.sql" relativeToChangelogFile="false"/>
+</databaseChangeLog>
