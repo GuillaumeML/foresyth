@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service
 class GetChattersQuery(
     val getChattersPort: GetChattersPort,
 ) {
-    fun getUsers(): List<Chatter> {
+    fun getChatters(): List<Chatter> {
         return getChattersPort.getChatters().map {
             Chatter(it.firstName)
         }

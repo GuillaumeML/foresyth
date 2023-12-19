@@ -12,6 +12,6 @@ class ChatterController(
 ) {
     @GetMapping("/chatters")
     fun getUsers(): List<Chatter> {
-        return getChattersQuery.getUsers()
+        return getChattersQuery.getChatters()
     }
 }
