@@ -1,4 +1,4 @@
-package gmlabs.forsyth
+package gmlabs.foresyth
 
 import io.kotest.core.spec.style.DescribeSpec
 import org.springframework.boot.test.context.SpringBootTest
