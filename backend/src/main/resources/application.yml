@@ -14,5 +14,4 @@ spring:
     init:
       mode: always # or never, embedded, etc.
   liquibase:
-    change-log=classpath:db/changelog/changelog:
-      sql:
+    change-log: classpath:/db/changelog/changelog-master.xml
