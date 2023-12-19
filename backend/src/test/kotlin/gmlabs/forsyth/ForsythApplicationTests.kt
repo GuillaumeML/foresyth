@@ -1,11 +1,14 @@
 package gmlabs.forsyth
 
-import org.junit.jupiter.api.Test
+
+import io.kotest.core.spec.style.DescribeSpec
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class ForsythApplicationTests {
-    @Test
-    fun contextLoads() {
+class ForsythApplicationTests : DescribeSpec ({
+    describe("Spring application context") {
+        it("should load without errors") {
+        }
     }
-}
+})
+
