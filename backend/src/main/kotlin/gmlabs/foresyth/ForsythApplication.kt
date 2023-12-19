@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class ForsythApplication
 
 fun main(args: Array<String>) {
-	runApplication<ForsythApplication>(*args)
+    runApplication<ForsythApplication>(*args)
 }
