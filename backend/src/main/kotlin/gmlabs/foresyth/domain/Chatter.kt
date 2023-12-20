@@ -1,3 +1,3 @@
-package gmlabs.foresyth.application
+package gmlabs.foresyth.domain
 
 data class Chatter(val firstName: String?)

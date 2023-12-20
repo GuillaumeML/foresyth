@@ -36,6 +36,6 @@ sudo docker stop forsyth-postgres
 mvn com.github.gantsign.maven:ktlint-maven-plugin:3.0.0:format
 ```
 # Todo
- - Create test cases
+ - Create test cases for persistence test
  - Create infra project
  - Install gitlab on local dev

@@ -28,11 +28,11 @@ class ChatterControllerGetAllTest : DescribeSpec() {
     init {
 
         describe("GET /chatters") {
-            //Mockito.`when`(getChattersQuery.getChatters()).thenReturn(emptyList())
+            // Mockito.`when`(getChattersQuery.getChatters()).thenReturn(emptyList())
             every { getChattersQuery.getChatters() } returns emptyList()
             it("should return 200 OK") {
                 mockMvc.perform(get("/chatters").contentType(MediaType.APPLICATION_JSON))
-                        .andExpect(status().isOk)
+                    .andExpect(status().isOk)
             }
         }
     }
