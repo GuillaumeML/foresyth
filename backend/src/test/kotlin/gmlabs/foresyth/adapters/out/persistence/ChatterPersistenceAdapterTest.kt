@@ -6,11 +6,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.test.context.ActiveProfiles
 
 @DataJpaTest
-@ActiveProfiles("test") // Use the 'test' profile
+@ActiveProfiles(profiles = ["test"])
 class ChatterPersistenceAdapterTest(private val chatterRepository: ChatterRepository) : DescribeSpec() {
     val chatterPersistenceAdapter = ChatterPersistenceAdapter(chatterRepository)
-
-
     init {
 
         describe("ChatterPersistenceAdapter") {
