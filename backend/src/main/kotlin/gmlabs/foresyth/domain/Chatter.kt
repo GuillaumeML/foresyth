@@ -1,3 +1,9 @@
 package gmlabs.foresyth.domain
 
-data class Chatter(val firstName: String?)
+import java.util.*
+
+data class Chatter(val chatterId: ChatterId, val firstName: String?)
+
+class ChatterId(
+    val value: UUID
+)

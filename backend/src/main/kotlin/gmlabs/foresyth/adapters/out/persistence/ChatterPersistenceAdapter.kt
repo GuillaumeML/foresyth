@@ -10,4 +10,9 @@ class ChatterPersistenceAdapter(
     override fun getChatters(): List<ChatterEntity> {
         return chatterRepository.findAll()
     }
+
+    fun save(chatterEntity: ChatterEntity) {
+        chatterRepository.save(chatterEntity)
+    }
+
 }

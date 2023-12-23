@@ -7,4 +7,6 @@ import java.util.*
 @Repository
 interface ChatterRepository : JpaRepository<ChatterEntity, UUID> {
     override fun findAll(): List<ChatterEntity>
+
+    fun save(chatterEntity: ChatterEntity)
 }

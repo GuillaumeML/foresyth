@@ -3,6 +3,7 @@ package gmlabs.foresyth.adapters.out.persistence
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
+import java.util.*
 
 @DataJpaTest
 class ChatterPersistenceAdapterTest(private val chatterRepository: ChatterRepository) : DescribeSpec() {
@@ -11,15 +12,18 @@ class ChatterPersistenceAdapterTest(private val chatterRepository: ChatterReposi
 
         describe("ChatterPersistenceAdapter") {
             it("should retrieve chatters") {
-                // Setup
+                val id = UUID.randomUUID()
+                val chatterEntity = ChatterEntity(id = id, firstName = "bob")
+                chatterPersistenceAdapter.save(chatterEntity)
+
                 chatterPersistenceAdapter.getChatters()
 
-                // Exercise
                 val actualChatters = chatterRepository.findAll()
 
-                // Verify
-                actualChatters shouldBe emptyList()
+                actualChatters.first().mapToDomain().chatterId.value shouldBe id
+                actualChatters.first().mapToDomain().firstName shouldBe "bob"
             }
+
         }
     }
 }
