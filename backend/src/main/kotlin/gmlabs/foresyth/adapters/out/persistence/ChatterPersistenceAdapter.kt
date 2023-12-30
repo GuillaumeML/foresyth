@@ -14,5 +14,4 @@ class ChatterPersistenceAdapter(
     fun save(chatterEntity: ChatterEntity) {
         chatterRepository.save(chatterEntity)
     }
-
 }

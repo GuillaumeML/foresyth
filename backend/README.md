@@ -5,7 +5,7 @@
 ### start the docker database mounted on a volume for dev
 
 ```bash
-docker run --name forsyth-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=foresyth -p 5432:5432 -v /home/user/postgres-data-dev:/var/lib/postgresql/data -d postgres
+docker run --name forsyth-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=foresyth -p 5430:5432 -d postgres
 
 ```
 

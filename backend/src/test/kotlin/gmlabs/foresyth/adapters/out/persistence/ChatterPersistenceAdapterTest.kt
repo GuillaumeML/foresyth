@@ -8,8 +8,8 @@ import java.util.*
 @DataJpaTest
 class ChatterPersistenceAdapterTest(private val chatterRepository: ChatterRepository) : DescribeSpec() {
     val chatterPersistenceAdapter = ChatterPersistenceAdapter(chatterRepository)
-    init {
 
+    init {
         describe("ChatterPersistenceAdapter") {
             it("should retrieve chatters") {
                 val id = UUID.randomUUID()
@@ -23,7 +23,6 @@ class ChatterPersistenceAdapterTest(private val chatterRepository: ChatterReposi
                 actualChatters.first().mapToDomain().chatterId.value shouldBe id
                 actualChatters.first().mapToDomain().firstName shouldBe "bob"
             }
-
         }
     }
 }
