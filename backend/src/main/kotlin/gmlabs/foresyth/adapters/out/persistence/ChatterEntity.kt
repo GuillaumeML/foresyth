@@ -6,7 +6,7 @@ import jakarta.persistence.Table
 import java.util.*
 
 @Entity
-@Table(name = "chatter_entity")
+@Table(name = "chatter_entities_from_annotation")
 class ChatterEntity(
     @Id var id: UUID,
     var firstName: String,
