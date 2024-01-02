@@ -11,7 +11,7 @@ class ChatterController(
     private val getChattersQuery: GetChattersQuery,
 ) {
     @GetMapping("/chatters")
-    fun getUsers(): List<Chatter> {
+    fun getChatters(): List<Chatter> {
         return getChattersQuery.getChatters()
     }
 }

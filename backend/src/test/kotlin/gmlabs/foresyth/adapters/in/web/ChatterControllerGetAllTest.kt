@@ -1,4 +1,3 @@
-
 import com.ninjasquad.springmockk.MockkBean
 import gmlabs.foresyth.ForsythApplication
 import gmlabs.foresyth.adapters.`in`.web.ChatterController
@@ -28,11 +27,12 @@ class ChatterControllerGetAllTest : DescribeSpec() {
     init {
 
         describe("GET /chatters") {
-            // Mockito.`when`(getChattersQuery.getChatters()).thenReturn(emptyList())
             every { getChattersQuery.getChatters() } returns emptyList()
-            it("should return 200 OK") {
-                mockMvc.perform(get("/chatters").contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk)
+            describe("when not authorized") {
+                it("should return 401 OK") {
+                    mockMvc.perform(get("/chatters").contentType(MediaType.APPLICATION_JSON))
+                        .andExpect(status().isUnauthorized)
+                }
             }
         }
     }

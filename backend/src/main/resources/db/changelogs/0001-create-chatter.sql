@@ -5,5 +5,6 @@
 CREATE TABLE public.chatter_entity (
     id UUID PRIMARY KEY,
     name VARCHAR(255) NULL
+
 );
 

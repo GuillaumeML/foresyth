@@ -1,16 +1,19 @@
 package gmlabs.foresyth.adapters.out.persistence
 
+import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
 import java.util.*
 
 @Entity
-@Table(name = "chatter_entities_from_annotation")
+@Table(name = "chatter_entity", schema = "public")
 class ChatterEntity(
-    @Id var id: UUID,
+    @Id
+    @Column(name = "id")
+    var id: UUID,
+    @Column(name = "name", nullable = false)
     var firstName: String,
-) {
-    // No-argument constructor for JPA
-    constructor() : this(UUID.randomUUID(), "")
-}
+    @Column(name = "password", nullable = false)
+    var password: String,
+)

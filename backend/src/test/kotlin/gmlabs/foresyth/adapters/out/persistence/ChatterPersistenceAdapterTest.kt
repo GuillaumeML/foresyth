@@ -13,8 +13,8 @@ class ChatterPersistenceAdapterTest(private val chatterRepository: ChatterReposi
         describe("ChatterPersistenceAdapter") {
             it("should retrieve chatters") {
                 val id = UUID.randomUUID()
-                val chatterEntity = ChatterEntity(id = id, firstName = "bob")
-                chatterPersistenceAdapter.save(chatterEntity)
+                val chatterEntity = ChatterEntity(id = id, firstName = "bob", password = "bob's password")
+                chatterPersistenceAdapter.saveChatter(chatterEntity.mapToDomain())
 
                 chatterPersistenceAdapter.getChatters()
 
