@@ -5,8 +5,8 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-class SignupController(private val signupChatterUseCase: SignupChatterUseCase) {
-    @PostMapping("/signup")
+class ChatterRegistrationController(private val signupChatterUseCase: SignupChatterUseCase) {
+    @PostMapping("/register")
     fun registerUser(
         @RequestBody chatterSignupRequest: ChatterSignupRequest,
     ): ResponseEntity<Any> {
