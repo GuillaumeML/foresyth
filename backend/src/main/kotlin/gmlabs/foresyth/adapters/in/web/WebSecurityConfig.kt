@@ -14,8 +14,8 @@ class WebSecurityConfig {
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http {
             authorizeRequests {
-                authorize("/chatters/**", permitAll)
-                authorize("/login", permitAll)
+                authorize(anyRequest, authenticated)
+                // authorize("/login", permitAll)
             }
             formLogin { }
             httpBasic { }
