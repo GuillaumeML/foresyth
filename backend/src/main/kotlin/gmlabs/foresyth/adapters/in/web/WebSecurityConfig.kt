@@ -15,7 +15,6 @@ class WebSecurityConfig {
         http {
             authorizeRequests {
                 authorize(anyRequest, authenticated)
-                // authorize("/login", permitAll)
             }
             formLogin { }
             httpBasic { }

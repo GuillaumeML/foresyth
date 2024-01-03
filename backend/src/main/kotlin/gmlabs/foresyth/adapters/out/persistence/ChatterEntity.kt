@@ -7,13 +7,13 @@ import jakarta.persistence.Table
 import java.util.*
 
 @Entity
-@Table(name = "chatter_entity", schema = "public")
+@Table(name = "chatters_entity", schema = "public")
 class ChatterEntity(
     @Id
-    @Column(name = "id")
-    var id: UUID,
-    @Column(name = "name", nullable = false)
-    var firstName: String,
+    @Column(name = "username", nullable = false)
+    var username: String,
     @Column(name = "password", nullable = false)
     var password: String,
+    @Column(name = "enabled", nullable = false)
+    var enabled: Boolean,
 )

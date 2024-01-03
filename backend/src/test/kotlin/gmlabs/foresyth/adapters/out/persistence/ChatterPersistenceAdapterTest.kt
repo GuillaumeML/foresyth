@@ -6,22 +6,22 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import java.util.*
 
 @DataJpaTest
-class ChatterPersistenceAdapterTest(private val chatterRepository: ChatterRepository) : DescribeSpec() {
+class ChatterPersistenceAdapterTest(
+    private val chatterRepository: ChatterRepository,
+) : DescribeSpec() {
     val chatterPersistenceAdapter = ChatterPersistenceAdapter(chatterRepository)
 
     init {
         describe("ChatterPersistenceAdapter") {
             it("should retrieve chatters") {
-                val id = UUID.randomUUID()
-                val chatterEntity = ChatterEntity(id = id, firstName = "bob", password = "bob's password")
+                val chatterEntity = ChatterEntity(username = "bob", password = "bob's password", enabled = true)
                 chatterPersistenceAdapter.saveChatter(chatterEntity.mapToDomain())
 
                 chatterPersistenceAdapter.getChatters()
 
                 val actualChatters = chatterRepository.findAll()
 
-                actualChatters.first().mapToDomain().chatterId.value shouldBe id
-                actualChatters.first().mapToDomain().firstName shouldBe "bob"
+                actualChatters.first().mapToDomain().username shouldBe "bob"
             }
         }
     }

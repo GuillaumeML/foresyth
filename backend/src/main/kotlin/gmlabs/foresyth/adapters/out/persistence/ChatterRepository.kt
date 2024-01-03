@@ -14,5 +14,7 @@ interface ChatterRepository : CrudRepository<ChatterEntity, UUID> {
     )
     override fun findAll(): List<ChatterEntity>
 
+    fun findByUsername(username: String): ChatterEntity
+
     fun save(chatterEntity: ChatterEntity)
 }

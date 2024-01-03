@@ -14,17 +14,6 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager
 @Configuration
 class SecurityConfiguration {
     @Bean
-    fun userDetailsService(): UserDetailsService {
-        val userDetails =
-            User.builder()
-                .username("user")
-                .password("password")
-                .roles("USER")
-                .build()
-        return InMemoryUserDetailsManager(userDetails)
-    }
-
-    @Bean
     fun authenticationManager(
         userDetailsService: UserDetailsService,
         passwordEncoder: PasswordEncoder,
@@ -39,5 +28,17 @@ class SecurityConfiguration {
     @Bean
     fun passwordEncoder(): PasswordEncoder {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder()
+    }
+
+    @Bean
+    fun userDetailsService(): UserDetailsService {
+        val user =
+            User.withDefaultPasswordEncoder()
+                .username("user")
+                .password("password")
+                .roles("USER")
+                .build()
+
+        return InMemoryUserDetailsManager(user)
     }
 }
