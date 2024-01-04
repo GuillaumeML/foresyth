@@ -1,6 +1,6 @@
 package gmlabs.foresyth.application
 
-import gmlabs.foresyth.adapters.`in`.web.ChatterRegistrationRequest
+import gmlabs.foresyth.adapters.`in`.web.Chatter.ChatterRegistrationRequest
 import gmlabs.foresyth.application.ports.out.SaveChatterPort
 import gmlabs.foresyth.domain.Chatter
 import org.springframework.security.crypto.password.PasswordEncoder

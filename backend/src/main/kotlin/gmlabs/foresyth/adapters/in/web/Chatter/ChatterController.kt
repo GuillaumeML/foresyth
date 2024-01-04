@@ -1,7 +1,6 @@
-package gmlabs.foresyth.adapters.`in`.web
+package gmlabs.foresyth.adapters.`in`.web.Chatter
 
 import gmlabs.foresyth.application.GetChattersQuery
-import gmlabs.foresyth.domain.Chatter
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -10,7 +9,7 @@ class ChatterController(
     private val getChattersQuery: GetChattersQuery,
 ) {
     @GetMapping("/chatters")
-    fun getChatters(): List<Chatter> {
-        return getChattersQuery.getChatters()
+    fun getChatters(): List<ChatterResponse> {
+        return getChattersQuery.getChatters().map { ChatterResponse(username = it.username) }
     }
 }

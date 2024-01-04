@@ -9,7 +9,7 @@ import java.util.*
 interface ChatterRepository : CrudRepository<ChatterEntity, UUID> {
     @Query(
         """
-        select u from ChatterEntity u
+        select u from ChatterEntity u where enabled = true
     """,
     )
     override fun findAll(): List<ChatterEntity>

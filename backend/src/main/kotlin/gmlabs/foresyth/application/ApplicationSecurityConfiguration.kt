@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 
 @Configuration
-class SecurityConfiguration {
+class ApplicationSecurityConfiguration {
     @Bean
     fun authenticationManager(
         userDetailsService: UserDetailsService,

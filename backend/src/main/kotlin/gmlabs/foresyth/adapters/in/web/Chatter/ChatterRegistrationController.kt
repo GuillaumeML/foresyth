@@ -1,4 +1,4 @@
-package gmlabs.foresyth.adapters.`in`.web
+package gmlabs.foresyth.adapters.`in`.web.Chatter
 
 import gmlabs.foresyth.application.SignupChatterUseCase
 import org.springframework.http.ResponseEntity
