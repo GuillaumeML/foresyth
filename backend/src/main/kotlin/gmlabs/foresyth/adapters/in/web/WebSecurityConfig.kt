@@ -13,11 +13,11 @@ class WebSecurityConfig {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http {
-            authorizeRequests {
+            csrf { disable() }
+            authorizeHttpRequests {
                 authorize("/register", permitAll)
-                authorize(anyRequest, authenticated)
+                authorize("/chatters", authenticated)
             }
-            formLogin { }
             httpBasic { }
         }
         return http.build()

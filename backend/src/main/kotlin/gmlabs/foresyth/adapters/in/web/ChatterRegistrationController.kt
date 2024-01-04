@@ -5,12 +5,14 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-class ChatterRegistrationController(private val signupChatterUseCase: SignupChatterUseCase) {
+class ChatterRegistrationController(
+    private val signupChatterUseCase: SignupChatterUseCase,
+) {
     @PostMapping("/register")
     fun registerUser(
-        @RequestBody chatterSignupRequest: ChatterSignupRequest,
+        @RequestBody chatterRegistrationRequest: ChatterRegistrationRequest,
     ): ResponseEntity<Any> {
-        signupChatterUseCase.signupChatter(chatterSignupRequest)
+        signupChatterUseCase.signupChatter(chatterRegistrationRequest)
         return ResponseEntity.ok("User registered successfully")
     }
 }
