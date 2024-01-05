@@ -16,7 +16,7 @@ class WebSecurityConfiguration {
             csrf { disable() }
             authorizeHttpRequests {
                 authorize("/register", permitAll)
-                authorize("/chatters", authenticated)
+                authorize("/chatters", hasRole("USER"))
             }
             httpBasic { }
         }
