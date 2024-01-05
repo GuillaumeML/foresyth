@@ -11,5 +11,3 @@ spring:
     show-sql: true
   liquibase:
     change-log: classpath:db/changelog-main.xml
-
-#https://github.com/Lincoln13/spring-security-jdbc/tree/main/src/main/java/com/example/authdb/service
