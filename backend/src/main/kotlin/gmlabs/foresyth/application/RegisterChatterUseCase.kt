@@ -1,22 +1,22 @@
 package gmlabs.foresyth.application
 
-import gmlabs.foresyth.adapters.`in`.web.Chatter.ChatterRegistrationRequest
+import gmlabs.foresyth.adapters.`in`.web.chatter.ChatterRegistrationRequest
 import gmlabs.foresyth.application.ports.out.SaveChatterPort
 import gmlabs.foresyth.domain.Chatter
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
 @Service
-class SignupChatterUseCase(
+class RegisterChatterUseCase(
     val saveChatterPort: SaveChatterPort,
     val passwordEncoder: PasswordEncoder,
 ) {
-    fun signupChatter(chatterRegistrationRequest: ChatterRegistrationRequest) {
+    fun registerChatter(chatterRegistrationRequest: ChatterRegistrationRequest) {
         val chatter =
             Chatter(
                 username = chatterRegistrationRequest.chatterName,
                 password = passwordEncoder.encode(chatterRegistrationRequest.password),
-                enabled = true,
+                enabled = true
             )
         saveChatterPort.saveChatter(chatter)
     }

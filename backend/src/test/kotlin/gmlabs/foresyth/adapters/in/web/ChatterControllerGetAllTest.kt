@@ -1,6 +1,6 @@
 import com.ninjasquad.springmockk.MockkBean
 import gmlabs.foresyth.ForsythApplication
-import gmlabs.foresyth.adapters.`in`.web.Chatter.ChatterController
+import gmlabs.foresyth.adapters.`in`.web.chatter.ChatterController
 import gmlabs.foresyth.application.GetChattersQuery
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.extensions.spring.SpringExtension

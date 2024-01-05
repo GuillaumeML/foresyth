@@ -1,4 +1,4 @@
-package gmlabs.foresyth.adapters.`in`.web.Chatter
+package gmlabs.foresyth.adapters.`in`.web.chatter
 
 import gmlabs.foresyth.domain.Chatter
 
