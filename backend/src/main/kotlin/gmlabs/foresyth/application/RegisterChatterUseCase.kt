@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service
 
 @Service
 class RegisterChatterUseCase(
-    val saveChatterPort: SaveChatterPort,
-    val saveAuthorityPort: SaveAuthorityPort,
-    val passwordEncoder: PasswordEncoder,
+    private val saveChatterPort: SaveChatterPort,
+    private val saveAuthorityPort: SaveAuthorityPort,
+    private val passwordEncoder: PasswordEncoder,
 ) {
     fun registerChatter(chatterRegistrationRequest: ChatterRegistrationRequest) {
         val chatter =
