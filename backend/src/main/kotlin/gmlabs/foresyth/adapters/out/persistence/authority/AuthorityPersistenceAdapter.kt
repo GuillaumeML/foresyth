@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component
 
 @Component
 class AuthorityPersistenceAdapter(
-    private val authorityRepository: AuthorityRepository
-): SaveAuthorityPort {
+    private val authorityRepository: AuthorityRepository,
+) : SaveAuthorityPort {
     override fun saveAuthority(authority: Authority) {
-       authorityRepository.save(authority.mapToEntity())
+        authorityRepository.save(authority.mapToEntity())
     }
 }

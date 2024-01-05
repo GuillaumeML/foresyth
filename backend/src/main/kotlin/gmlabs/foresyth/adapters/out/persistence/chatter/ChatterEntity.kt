@@ -9,13 +9,10 @@ class ChatterEntity(
     @Id
     @Column(name = "username", nullable = false, length = 50)
     var username: String,
-
     @Column(name = "password", nullable = false, length = 500)
     var password: String,
-
     @Column(name = "enabled", nullable = false)
     var enabled: Boolean,
-
     @OneToMany(mappedBy = "chatter", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
-    var authorities: Set<AuthorityEntity> = HashSet()
+    var authorities: Set<AuthorityEntity> = HashSet(),
 )

@@ -19,12 +19,12 @@ class RegisterChatterUseCase(
             Chatter(
                 username = chatterRegistrationRequest.chatterName,
                 password = passwordEncoder.encode(chatterRegistrationRequest.password),
-                enabled = true
+                enabled = true,
             )
         val authority =
             Authority(
                 chatter = chatter,
-                authority = "ROLE_USER"
+                authority = "ROLE_USER",
             )
         saveChatterPort.saveChatter(chatter)
         saveAuthorityPort.saveAuthority(authority)
