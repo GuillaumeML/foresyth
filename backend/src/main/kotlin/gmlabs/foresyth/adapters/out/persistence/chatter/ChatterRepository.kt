@@ -1,4 +1,4 @@
-package gmlabs.foresyth.adapters.out.persistence
+package gmlabs.foresyth.adapters.out.persistence.chatter
 
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository

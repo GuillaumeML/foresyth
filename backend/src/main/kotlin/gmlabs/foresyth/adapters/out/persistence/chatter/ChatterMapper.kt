@@ -1,4 +1,4 @@
-package gmlabs.foresyth.adapters.out.persistence
+package gmlabs.foresyth.adapters.out.persistence.chatter
 
 import gmlabs.foresyth.domain.Chatter
 

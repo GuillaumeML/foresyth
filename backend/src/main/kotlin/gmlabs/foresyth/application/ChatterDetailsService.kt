@@ -1,7 +1,7 @@
 package gmlabs.foresyth.application
 
-import gmlabs.foresyth.adapters.out.persistence.ChatterEntity
-import gmlabs.foresyth.adapters.out.persistence.ChatterRepository
+import gmlabs.foresyth.adapters.out.persistence.chatter.ChatterEntity
+import gmlabs.foresyth.adapters.out.persistence.chatter.ChatterRepository
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
@@ -18,7 +18,7 @@ class ChatterDetailsService(val chatterRepository: ChatterRepository) : UserDeta
 
 class ChatterPrincipal(private val chatterEntity: ChatterEntity) : UserDetails {
     override fun getAuthorities(): Collection<GrantedAuthority> {
-        return listOf(SimpleGrantedAuthority("ROLE_USER"))
+        return chatterEntity.authorities.map { SimpleGrantedAuthority(it.authority) }
     }
 
     override fun getPassword(): String {
