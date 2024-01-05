@@ -16,6 +16,6 @@ class ChatterEntity(
     @Column(name = "enabled", nullable = false)
     var enabled: Boolean,
 
-    @OneToMany(mappedBy = "chatter", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "chatter", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
     var authorities: Set<AuthorityEntity> = HashSet()
 )
