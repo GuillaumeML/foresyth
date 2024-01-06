@@ -1,6 +1,5 @@
 package gmlabs.foresyth.application
 
-import com.ninjasquad.springmockk.MockkBean
 import gmlabs.foresyth.adapters.`in`.web.chatter.ChatterRegistrationRequest
 import gmlabs.foresyth.application.ports.out.SaveAuthorityPort
 import gmlabs.foresyth.application.ports.out.SaveChatterPort
@@ -11,18 +10,18 @@ import io.mockk.*
 import org.springframework.security.crypto.password.PasswordEncoder
 
 class RegisterChatterUseCaseTest : DescribeSpec() {
-
     private val saveChatterPort: SaveChatterPort = mockk()
 
     private val saveAuthorityPort: SaveAuthorityPort = mockk()
 
     private val passwordEncoder: PasswordEncoder = mockk()
 
-    private val registerChatterUseCase = RegisterChatterUseCase(
-        saveChatterPort,
-        saveAuthorityPort,
-        passwordEncoder
-    )
+    private val registerChatterUseCase =
+        RegisterChatterUseCase(
+            saveChatterPort,
+            saveAuthorityPort,
+            passwordEncoder,
+        )
 
     init {
 
@@ -50,7 +49,6 @@ class RegisterChatterUseCaseTest : DescribeSpec() {
                 it("should save the role USER in the authority") {
                     verify(exactly = 1) { saveAuthorityPort.saveAuthority(any()) }
                 }
-
             }
         }
     }
@@ -61,7 +59,7 @@ class RegisterChatterUseCaseTest : DescribeSpec() {
 
     private fun createChatterRegistrationRequest(
         chatterName: String = "testChatter",
-        password: String = "testPassword"
+        password: String = "testPassword",
     ): ChatterRegistrationRequest {
         return ChatterRegistrationRequest(chatterName = chatterName, password = password)
     }
