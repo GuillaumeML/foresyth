@@ -10,13 +10,13 @@ import org.springframework.web.context.request.WebRequest
 
 @ControllerAdvice
 class GlobalExceptionHandler {
-
     @ExceptionHandler(BaseChatterException::class)
-    fun handleYourCustomException(ex: ChatterNotFoundException, request: WebRequest): ResponseEntity<Any> {
+    fun handleYourCustomException(
+        ex: ChatterNotFoundException,
+        request: WebRequest,
+    ): ResponseEntity<Any> {
         val responseBody = mapOf("message" to ex.message)
 
         return ResponseEntity(responseBody, HttpStatus.BAD_REQUEST)
     }
-
-
 }

@@ -1,12 +1,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as k8s from "@pulumi/kubernetes";
 
-// Minikube does not implement services of type `LoadBalancer`; require the user to specify if we're
-// running on minikube, and if so, create only services of type ClusterIP.
 const config = new pulumi.Config();
 const isMinikube = config.requireBoolean("isMinikube");
 
-const appName = "nginx";
+const appName = "foresyth-backend";
 const appLabels = { app: appName };
 const deployment = new k8s.apps.v1.Deployment(appName, {
     spec: {
@@ -14,24 +12,24 @@ const deployment = new k8s.apps.v1.Deployment(appName, {
         replicas: 1,
         template: {
             metadata: { labels: appLabels },
-            spec: { containers: [{ name: appName, image: "nginx" }] }
+            spec: { containers: [{
+                name: appName,
+                image: "localhost:5000/foresyth-backend",
+                ports: [{ containerPort: 8080 }] // Make sure this matches your app's port
+            }] }
         }
     }
 });
 
-// Allocate an IP to the Deployment.
-const frontend = new k8s.core.v1.Service(appName, {
+const service = new k8s.core.v1.Service(appName, {
     metadata: { labels: deployment.spec.template.metadata.labels },
     spec: {
         type: isMinikube ? "ClusterIP" : "LoadBalancer",
-        ports: [{ port: 80, targetPort: 80, protocol: "TCP" }],
+        ports: [{ port: 80, targetPort: 8080, protocol: "TCP" }], // targetPort should match containerPort
         selector: appLabels
     }
 });
 
-// When "done", this will print the public IP.
 export const ip = isMinikube
-    ? frontend.spec.clusterIP
-    : frontend.status.loadBalancer.apply(
-          (lb) => lb.ingress[0].ip || lb.ingress[0].hostname
-      );
+    ? service.spec.clusterIP
+    : service.status.loadBalancer.apply(lb => lb.ingress[0].ip || lb.ingress[0].hostname);

@@ -68,13 +68,14 @@ class ChatterControllerGetAllTest : DescribeSpec() {
     }
 
     private fun createChatterWithRoleUser(): RequestPostProcessor = user("user").password("pass").roles("USER")
-    private fun getChatters(user: RequestPostProcessor) = mockMvc
-        .perform(
-            get("/chatters")
-                .with(
-                    user
-                )
-                .contentType(MediaType.APPLICATION_JSON),
-        )
 
+    private fun getChatters(user: RequestPostProcessor) =
+        mockMvc
+            .perform(
+                get("/chatters")
+                    .with(
+                        user,
+                    )
+                    .contentType(MediaType.APPLICATION_JSON),
+            )
 }
