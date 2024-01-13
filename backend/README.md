@@ -34,7 +34,16 @@ sudo docker stop forsyth-postgres
 ```bash
 mvn com.github.gantsign.maven:ktlint-maven-plugin:3.0.0:format
 ```
+
+### Common maven commands
+
+#### Build the image and push to minikube registry
+
+```shell
+mvn compile jib:build
+```
+
 # Todo
  - Create test cases for persistence test
- - Create infra project
  - Install gitlab on local dev
+
