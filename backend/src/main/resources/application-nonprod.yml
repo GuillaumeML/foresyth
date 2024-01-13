@@ -1,8 +1,8 @@
 spring:
   profiles:
-    active: local
+    active: nonprod
   datasource:
-    url: jdbc:postgresql://localhost:5430/postgres
+    url: jdbc:postgresql://foresyth-backend-service:5432/postgres
     username: postgres
     password: postgres
   jpa:
@@ -11,3 +11,4 @@ spring:
     show-sql: true
   liquibase:
     change-log: classpath:db/changelog-main.xml
+

@@ -162,21 +162,15 @@
 				<version>3.4.0</version>
 				<configuration>
 					<from>
-						<image>azul/zulu-openjdk:17</image> <!-- or choose another suitable base image -->
+						<image>azul/zulu-openjdk:17</image>
 					</from>
 					<to>
-						<image>localhost:5000/foresyth-backend</image> <!-- replace with your image name -->
+						<image>localhost:5000/foresyth-backend</image>
 					</to>
 					<container>
 						<ports>
-							<port>8080</port> <!-- Expose port 8080 -->
+							<port>8080</port>
 						</ports>
-						<entrypoint>
-							<shell>java</shell>
-							<option>-cp</option>
-							<option>/app/resources:/app/classes:/app/libs/*</option>
-							<arg>org.springframework.boot.loader.JarLauncher</arg> <!-- Spring Boot's JarLauncher -->
-						</entrypoint>
 					</container>
 					<allowInsecureRegistries>true</allowInsecureRegistries>
 				</configuration>
