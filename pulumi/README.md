@@ -32,6 +32,12 @@ kubectl port-forward --namespace kube-system service/registry 5000:80
 docker run --rm -it --network=host alpine ash -c "apk add socat && socat TCP-LISTEN:5000,reuseaddr,fork TCP:host.docker.internal:5000"
 ```
 
+
+### Get the minikube backend service url
+```shell
+minikube service foresyth-backend-service --url
+```
+
 ## Useful powershell maintenance scripts 
 
 # Get scale down all replicas to 0

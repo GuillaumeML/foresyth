@@ -25,13 +25,18 @@ const deployment = new k8s.apps.v1.Deployment("foresyth-backend-deployment", {
 });
 
 const service = new k8s.core.v1.Service("foresyth-backend-service", {
-    metadata: { labels: deployment.spec.template.metadata.labels },
+    metadata: {
+        labels: deployment.spec.template.metadata.labels,
+        name: "foresyth-backend-service"
+    },
     spec: {
-        type: isMinikube ? "ClusterIP" : "LoadBalancer",
-        ports: [{ port: 80, targetPort: 8080, protocol: "TCP" }], // targetPort should match containerPort
-        selector: appLabels
-    }
+                type: "NodePort", // Change to NodePort
+                ports: [{ port: 80, targetPort: 8080, protocol: "TCP" }], // targetPort should match containerPort
+                selector: appLabels
+            }
 });
+
+
 
 const postgresDeployment = new k8s.apps.v1.Deployment("postgres-deployment", {
     spec: {
@@ -56,6 +61,9 @@ const postgresDeployment = new k8s.apps.v1.Deployment("postgres-deployment", {
 });
 
  const postgresService = new k8s.core.v1.Service("postgres-service", {
+     metadata: {
+         name: "postgres-service", // Explicitly set the service name
+     },
      spec: {
          type: "ClusterIP",
          ports: [{ port: 5432, targetPort: 5432 }],
