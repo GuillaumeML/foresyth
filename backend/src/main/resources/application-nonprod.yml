@@ -1,14 +1,4 @@
 spring:
-  profiles:
-    active: nonprod
   datasource:
     url: jdbc:postgresql://foresyth-backend-service:5432/postgres
-    username: postgres
-    password: postgres
-  jpa:
-    hibernate:
-      ddl-auto: none
-    show-sql: true
-  liquibase:
-    change-log: classpath:db/changelog-main.xml
-
+    # Rest of the non-prod specific configurations...
